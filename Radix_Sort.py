@@ -14,13 +14,13 @@ def radix_sort(a,n):
     m=max(a)
     m1=min(a)
     for i in range(n):
-        a[i]-=m1
+        a[i]+=abs(m1)
     pos=1
-    while(m//pos>0):
+    while(m/pos>0):
         counting_sort(a,n,pos)
         pos*=10
     for i in range(n):
-        a[i]+=m1
+        a[i]-=abs(m1)
 a=list(map(int,input().split()))
 radix_sort(a,len(a))
 print(*a)
